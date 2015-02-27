@@ -1,4 +1,4 @@
-The projects preferred markup format is asciidoctor.org[Asciidoc].  
+The projects preferred markup format is http://asciidoctor.org[Asciidoc].  
 Asciidoc has a lot of great features, but denoting chapter and title information is the first step in making beautiful ebooks.
 
 
