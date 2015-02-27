@@ -1,0 +1,19 @@
+The projects preferred markup format is asciidoctor.org[Asciidoc].  
+Asciidoc has a lot of great features, but denoting chapter and title information is the first step in making beautiful ebooks.
+
+
+The title of the book should have a row of dashes underneath.  This turns into a Level one header +<h1>+
+
+  Alice in Wonderland
+  -------------------
+
+Chapters should have two equals signs.  This turns into an +<h2>+ tag in html
+
+  == Chapter 1
+  Paragraph text &etc
+  == Chapter 2
+
+If the book is broken up into smaller subsections than chapters, you can use more equal signs:
+
+  == Chapter 9
+  === Section A
