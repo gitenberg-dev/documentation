@@ -1,0 +1,10 @@
+Welcome to the GITenberg wiki!
+
+
+For more information about GITenberg, please see our (https://gitenberg.github.io)[website].
+
+We are currently working on converting and editing our first 100 books.  
+The tasks that need to be done for these books are documented on the following pages:
+
++ (./encoding)[Encoding]
++ (./unicoding)[Unicoding]
