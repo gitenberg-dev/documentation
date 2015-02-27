@@ -1,0 +1,4 @@
+GITenberg uses unicode characters for typography where appropriate.  
+Common unicode characters that we use are curved quotes, or &ldquo;smart quotes&rdquo;
+
+Contributor @rsperberg has written a script that will convert many of these characters automatically, available in the (https://github.com/gitenberg-dev/scripts)[gitenberg-dev/scripts] repo with instructions on use.
