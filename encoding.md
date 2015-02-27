@@ -1,0 +1,8 @@
+The https://en.wikipedia.org/wiki/Character_encoding[character encoding] of GITenberg books should always be https://en.wikipedia.org/wiki/UTF-8[UTF-8] (aka Unicode).  Project Gutenberg source files were often created before Unicode existed and need to be converted.
+
+To re-encode a file as UTF-8, you need to use the `iconv` commandline tool.
+
+Steps:
+1. Discover what current character encoding (**How? TODO**)
+2. use iconv to create a new utf-8 file
+    iconv -f "<source format>" -t "UTF-8" <bookid>.txt -o <newfile>.txt
