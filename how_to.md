@@ -15,7 +15,7 @@ Ideally, we'd like to have a hundred texts to serve as a testbed for the GITenbe
     5. congratulations, you're now a GITenberger!
     6. someone will add your repo to the list and "close" your issue
     
-Note: following instructions need a lot of elaboration!
+    Note: following instructions need a lot of elaboration!
 4. If you want to add directly to the list:  
     1. "fork" the gitenberg-dev repo
     2. add the url of the repo you've selected, along with your github username to your copy of activerepos.csv
