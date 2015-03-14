@@ -14,7 +14,7 @@ to get
 
 2. use iconv to create a new utf-8 file
 
-    iconv -f "<source format>" -t "UTF-8" <bookid>.txt -o <newfile>.txt
+    iconv -f "<source format>" -t "UTF-8" <bookid>.txt > <newfile>.txt
 
 3. Commit the new file to git and push to github
 4. Create a pull request to the 100books organization
