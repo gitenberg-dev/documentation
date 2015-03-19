@@ -1,8 +1,8 @@
-Welcome to the GITenberg wiki!
-
+= Welcome to the GITenberg wiki!
 
 For more information about GITenberg, please see our https://gitenberg.github.io[website].
 
+== First Tasks
 We are currently working on converting and editing our first 100 books.  
 The tasks that need to be done for these books are documented on the following pages:
 
@@ -10,3 +10,13 @@ The tasks that need to be done for these books are documented on the following p
 * https://github.com/gitenberg-dev/wiki/wiki/unicoding[Unicoding]
 * https://github.com/gitenberg-dev/wiki/wiki/sectioning[Sectioning]
 * https://github.com/gitenberg-dev/wiki/wiki/imaging[Imaging]
+
+== Infrastructure Documentation
+Descriptions of the various systems (current and future) that run GITenberg.
+
+* [Github post-commit hooks] -- how we know when to rebuild ebooks when changes are made to repos
+* [Book repo digestor] -- Receives a book repo, decides what to do based on the content of the repo
+
+
+== Formatting considerations
+* [DropCaps]
