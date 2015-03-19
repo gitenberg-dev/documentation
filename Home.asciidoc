@@ -15,7 +15,7 @@ The tasks that need to be done for these books are documented on the following p
 Descriptions of the various systems (current and future) that run GITenberg.
 
 * [Github post-commit hooks] -- how we know when to rebuild ebooks when changes are made to repos
-* [Book repo digestor] -- Receives a book repo, decides what to do based on the content of the repo
+* https://github.com/gitenberg-dev/wiki/wiki/DropCaps[Book repo digestor] -- Receives a book repo, decides what to do based on the content of the repo
 
 
 == Formatting considerations
