@@ -1,4 +1,4 @@
 GITenberg uses unicode characters for typography where appropriate.  
-Common unicode characters that we use are curved quotes, or &ldquo;smart quotes&rdquo;
+Common unicode characters that we use are curved quotes (aka &ldquo;smart quotes&rdquo;) and [dashes](https://en.wikipedia.org/wiki/Dash#Common_dashes).
 
-Contributor @rsperberg has written a script that will convert many of these characters automatically, available in the (https://github.com/gitenberg-dev/scripts)[gitenberg-dev/scripts] repo with instructions on use.
+Contributor @rsperberg has written a script that will convert many of these characters automatically, available in the (https://github.com/gitenberg-dev/punctuation-cleanup)[gitenberg-dev/punctuation-cleanup] repo with instructions on use.
