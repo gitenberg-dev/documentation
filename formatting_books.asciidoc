@@ -1,1 +1,6 @@
-t
+The tasks that need to be done for these books are documented on the following pages:
+
+* link:encoding[Encoding]
+* link:unicoding[Unicoding]
+* link:sectioning[Sectioning]
+* link:imaging[Imaging]
