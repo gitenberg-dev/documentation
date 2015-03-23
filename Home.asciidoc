@@ -6,7 +6,7 @@ For more information about GITenberg, please see our https://gitenberg.github.io
 We are currently working on converting and editing our first 100 books.  
 
 
-* Help us link:formatting_books[format books] into link:asciidoc[asciidoc]
+* Help us link:formatting-books[format books] into link:asciidoc[asciidoc]
 * Suggest books we should improve
 * Join our announcement list
 
