@@ -2,14 +2,30 @@
 
 For more information about GITenberg, please see our https://gitenberg.github.io[website].
 
-= Help Needed
-We are currently working on converting and editing our first 100 books.  
+[[how-can-you-contribute]]
+How can you contribute?
+-----------------------
 
+We are currently working on converting and editing our first 100 books.  
 
 * Help us link:formatting-books[format books] into link:asciidoc[asciidoc]
 * Suggest books we should improve
 * Join our announcement list
 
+For now there are a few things you can do depending on your interest and
+skill level. Firstly, if you find an error or typo in any of the books,
+report it in the 'Issues' tab on that repo. If you would like to offer
+changes: fork, edit and create a Pull Request. If you would like to make
+suggestions, help in another way, or would like to get more involved,
+you can join the project
+https://groups.google.com/forum/#!forum/gitenberg-project[mailing list].
+
+[[status]]
+Status
+------
+
+You can read the full text of the last project status report
+https://groups.google.com/d/msg/gitenberg-project/i3gV2OjEeAQ/m8bC81tBhokJ[here].
 
 == Infrastructure Documentation
 Descriptions of the various systems (current and future) that run GITenberg.
@@ -20,3 +36,105 @@ Descriptions of the various systems (current and future) that run GITenberg.
 
 == Formatting considerations
 * https://github.com/gitenberg-dev/wiki/wiki/DropCaps[DropCaps]
+
+[[active-goals]]
+Active goals
+------------
+
+Step 1 is to create a list of ebook repos we'll use as a testbed for the
+GITenberg tool chain. The current list is maintained on [this
+file][active-repos]. Instructions on including a new repo are
+link:how_to.md[available]
+
+[[open-questions]]
+Open questions
+--------------
+
+[[how-to-generate-covers-for-the-books]]
+How to generate covers for the books?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[[what-will-be-the-source-format]]
+What will be the source format?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Discussion is still open, but asciidoc is the current best candidate.
+
+[[how-are-the-repositories-created]]
+How are the repositories created?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[[what-is-the-reference-format-from-pg]]
+What is the reference format from PG?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[[how-to-cope-with-punctuation]]
+How to cope with punctuation?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There is consensus to convert when possible ascii punctuation to unicode
+more precise equivalents.
+
+[[what-is-the-licensing-big-schema]]
+What is the licensing big schema?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[[what-about-metadata]]
+What about Metadata?
+~~~~~~~~~~~~~~~~~~~~
+
+[[how-to-read-metadata-from-pg]]
+How to read metadata from PG?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Eric Hellman is working to understand metadata dumps provided by PG. It
+is a work in progress, and preliminary results are available in
+https://gist.github.com/eshellman/40d85be01acf1172a5c1[this document].
+
+[[how-to-archive-metadata-for-gitenberg-usage]]
+How to archive metadata for gitenberg usage?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ongoing discussion, current state
+https://gist.github.com/eshellman/7a6d34c88e797b439938[here].
+
+[[repositories]]
+Repositories
+------------
+
+[[books]]
+Books
+~~~~~
+
+Every book on PG gets its own repository. All are listed on the
+gitenberg organization github page, https://github.com/GITenberg/[here].
+
+The main gitenberg page, which is for the moment a developper's page, is
+hosted http://gitenberg.github.io/[here], and its source is
+https://github.com/GITenberg/gitenberg.github.com/blob/master/index.html[here].
+
+[[development]]
+Development
+~~~~~~~~~~~
+
+There is work going on on several repositories. The central point for
+development is the gitenberg-dev organization, whose repos can be seen
+on its github git@github.com:sethwoodworth/GITenberg.git[page].
+
+There are other repositories in which some work for gitenberg happened:
+https://github.com/sethwoodworth/GITenmake[gitenmake],
+https://github.com/sethwoodworth/GITenberg[sethwoodworth/gitenberg]
+
+[[readmes-introductions-and-faqs]]
+Readmes, introductions and FAQs
+-------------------------------
+
+Several pieces of information are scattered around. This one is intended
+to replace all of them but for the main gitemberg page, which serves as
+first contact. All the others are being amended to point to this
+document.
+
+http://gitenberg.github.io/[Main Gitenberg page]
+https://github.com/gitenberg-dev/wiki[wiki]
+https://github.com/gitenberg-dev/wiki/wiki[wiki.wiki]
+https://github.com/sethwoodworth/GITenberg[sethwoodworth/gitenberg]
