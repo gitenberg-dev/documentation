@@ -30,9 +30,6 @@ Descriptions of the various systems (current and future) that run GITenberg.
 * [Book repo digestor] -- Receives a book repo, decides what to do based on the content of the repo
 
 
-== Formatting considerations
-* https://github.com/gitenberg-dev/wiki/wiki/DropCaps[DropCaps]
-
 == Active goals
 
 Step 1 is to create a list of ebook repos we'll use as a testbed for the
