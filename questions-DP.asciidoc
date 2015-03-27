@@ -1,0 +1,8 @@
+= Questions about Distributed Proofreaders
+
+* Where can we get a database of DP projects > PG ebooks?
+** can we get access or a link to the scans a DP book was created from?
+** Can we get a link to the forum thread for the DP book?
+** Can we get the original html product of DP?
+* How does PG change DP generated html?
+* How would you like your html to be distributed/managed?
