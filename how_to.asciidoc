@@ -1,0 +1,34 @@
+= How To
+
+This document sets out the basics of how to prepare works for GITenberg.
+
+== Overview
+
+The tasks that need to be done for these books are documented on the following pages:
+
+* link:encoding[Encoding]
+* link:unicoding[Unicoding]
+* link:sectioning[Sectioning]
+* link:drop-caps[Drop Caps]
+* link:imaging[Imaging]
+
+== Help us select a starter set of PG texts!
+
+Ideally, we'd like to have a hundred texts to serve as a testbed for the GITenberg toolchain.
+
+1. you need to have a github account. sign up at https://github.com/join
+2. pick out a GITenberg repo you'd like to help out on. You can search the repos with the search box *below* Johannes at https://github.com/GITenberg
+3. "star" the repo you've selected. Just click on the star at the top of the repo page.
+4. If you're new to Github, create an "issue" in  gitenberg-dev at  
+    a. copy the url of the repo you've selected
+    b. go to https://github.com/gitenberg-dev/wiki/issues and click the green "new issue" button
+    c. paste the url of your repo and add any comments you'd like
+    d. click the green "Submit New Issue" button. 
+    e. congratulations, you're now a GITenberger!
+    f. someone will add your repo to the list and "close" your issue  
+       Note: following instructions need a lot of elaboration!
+5. If you want to add directly to the list:  
+    a. "fork" the gitenberg-dev repo
+    b. add the url of the repo you've selected, along with your github username to your copy of activerepos.csv
+    c. commit the change to your copy
+    d. submit a pull request to gitenberg-dev/master
