@@ -1,4 +1,4 @@
-== Welcome to the GITenberg wiki!
+= Welcome to the GITenberg documentation!
 
 For more information about GITenberg, please see our https://gitenberg.github.io[website].
 
@@ -6,7 +6,7 @@ For more information about GITenberg, please see our https://gitenberg.github.io
 
 We are currently working on converting and editing our first 100 books.  
 
-* Help us link:formatting-books[format books] into link:asciidoc[asciidoc]
+* Help us link:how_to[format books] into link:asciidoc[asciidoc]
 * Suggest books we should improve
 * Join our announcement list
 
@@ -26,8 +26,8 @@ https://groups.google.com/d/msg/gitenberg-project/i3gV2OjEeAQ/m8bC81tBhokJ[here]
 == Infrastructure Documentation
 Descriptions of the various systems (current and future) that run GITenberg.
 
-* [Github post-commit hooks] -- how we know when to rebuild ebooks when changes are made to repos
-* [Book repo digestor] -- Receives a book repo, decides what to do based on the content of the repo
+* [Github post-commit hooks] — how we know when to rebuild ebooks when changes are made to repos
+* [Book repo digestor] — Receives a book repo, decides what to do based on the content of the repo
 
 
 == Active goals
@@ -35,7 +35,7 @@ Descriptions of the various systems (current and future) that run GITenberg.
 Step 1 is to create a list of ebook repos we'll use as a testbed for the
 GITenberg tool chain. The current list is maintained on [this
 file][active-repos]. Instructions on including a new repo are
-link:how_to.md[available]
+link:how_to[available]
 
 == Open questions
 
