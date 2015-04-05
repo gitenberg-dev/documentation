@@ -18,17 +18,17 @@ suggestions, help in another way, or would like to get more involved,
 you can join the project
 https://groups.google.com/forum/#!forum/gitenberg-project[mailing list].
 
-== Status
+== Project Status
 
 You can read the full text of the last project status report
 https://groups.google.com/d/msg/gitenberg-project/i3gV2OjEeAQ/m8bC81tBhokJ[here].
 
-== Infrastructure Documentation
-Descriptions of the various systems (current and future) that run GITenberg.
+== Documentation Index
 
-* [Github post-commit hooks] — how we know when to rebuild ebooks when changes are made to repos
-* [Book repo digestor] — Receives a book repo, decides what to do based on the content of the repo
-
+* Infrastructure Documentation — Descriptions of the various systems (current and future) that run GITenberg.
+** [Github post-commit hooks] — how we know when to rebuild ebooks when changes are made to repos
+** [Book repo digestor] — Receives a book repo, decides what to do based on the content of the repo
+* link:filetypes[Filetypes]
 
 == Active goals
 
