@@ -11,9 +11,11 @@ It makes sense to identify some of these repo types here.
 PG includes at least two types of audiobooks:
 
 * Computer-read audiobooks
+** https://github.com/GITenberg/The-Call-of-the-Wild_9115[call of the wild 9115]
 * Human-read audiobooks produced by Librivox
+** https://github.com/GITenberg/The-War-of-the-Worlds_26291[war of the worlds 26291]
+** https://github.com/GITenberg/Call-of-the-Wild_19678[call of the wild 19678]
 
 Here are a list of librivox books:
 
-* https://github.com/GITenberg/The-War-of-the-Worlds_26291[war of the worlds 26291]
-* https://github.com/GITenberg/Call-of-the-Wild_19678[call of the wild 19678]
+
