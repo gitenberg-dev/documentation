@@ -1,0 +1,13 @@
+= Filetypes
+
+There are many types of files that make up GITenberg repos.
+
+== Types of files
+== Types of PG records
+There are also many types of records from Project Gutenberg.
+It makes sense to identify some of these repo types here.
+
+=== Audiobooks
+PG includes at least two types of audiobooks:
+* Computer-read audiobooks
+* Human-read audiobooks produced by Librivox
