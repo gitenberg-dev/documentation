@@ -1,0 +1,106 @@
+== GITenberg metadata
+=== Part 3. Other sources of metadata
+
+In https://gist.github.com/eshellman/7a6d34c88e797b439938[Part 2] we looked at the data already in project Gutenberg. Now we're going to want to bring in metadata from other sources. OpenLibrary is a source of metadata with a reasonably well designed API. It returns JSON, which can be readily converted to yaml
+
+The OpenLibrary metadata for one edition (manifestation) of Space Viking is here:
+
+[source, json]
+----
+olid:OL7526155M:
+  bib_key: olid:OL7526155M
+  details:
+    authors:
+    - key: /authors/OL42322A
+      name: H. Beam Piper
+    classifications: {}
+    covers:
+    - 284580
+    created:
+      type: /type/datetime
+      value: '2008-04-29T13:35:46.876380'
+    identifiers:
+      goodreads:
+      - '1440159'
+      librarything:
+      - '138032'
+    isbn_10:
+    - 0441602258
+    isbn_13:
+    - '9780441602254'
+    key: /books/OL7526155M
+    languages:
+    - key: /languages/eng
+    last_modified:
+      type: /type/datetime
+      value: '2012-06-18T00:43:42.710342'
+    latest_revision: 7
+    number_of_pages: 191
+    publish_date: '1964'
+    publishers:
+    - Ace Books
+    revision: 7
+    series:
+    - VIntage Ace SF, F-225
+    title: Space Viking
+    type:
+      key: /type/edition
+    works:
+    - key: /works/OL579067W
+  info_url: https://openlibrary.org/books/OL7526155M/Space_Viking
+  preview: noview
+  preview_url: https://openlibrary.org/books/OL7526155M/Space_Viking
+  thumbnail_url: https://covers.openlibrary.org/b/id/284580-S.jpg
+----
+
+Things to note about the OpenLibrary metadata:
+
+* some things it says are duplicates of what PG says, but in a different format. So "/languages/eng" instad of "en". the open library value is technically a pointer to https://openlibrary.org/languages/eng, which gives the full name of the language, English, but not much else. Except for the sad fact that Aaron Swartz had to revert the name from a mistaken change to "Malayalam".
+* The Goodreads and Librarything ids are very useful for linking, in both directions. Both of these services have difficulties linking to PG because their data models center around ISBN. If they could load using a local id, making links to our ebooks would be a lot easier for them. Same story for OpenLibrary itself.
+* The main difficulty for use of this metadata in GITenberg is that it's edition specific. occasionally there might be an edition that coincides with the edition used for digitization, but that determination would have to be done by hand.
+* ISBNs can be very useful to get more info. LibraryThing and OCLC have apis to get related isbns, which is useful for libraries because it helps them group editions into works. This is especially usefule for GITenberg because there aren't ISBNs for the editions. It's not impossible that we could get a block of ISBNs specifically for the PG text.
+
+Another aggregation of metadata with a well-supported API is Google Books. You can obtain a google books id with an isbn. So for example https://www.googleapis.com/books/v1/volumes/j6NrcDkA2wYC
+The yaml version is here: https://gist.github.com/eshellman/a4e6c3a671db98b56b07 Not so much there is useful to us because of terms of service restrictions.
+
+Moving into the library world, most everything in PG is cataloged in some way by Library of Congress: http://lccn.loc.gov/75000422 https://gist.github.com/eshellman/c2879061d753bcde63e1[Here are the files.]
+
+The MARC-XML is what many libraries would use; the MODS is somewhat less mystifying to the uninitiated. The most useful bits here are the Dewey Decimal numbers and the subject headings.
+[source,xml]
+----
+<classification authority="lcc">PZ4.P666 Sp4</classification>
+<classification authority="lcc">PS3566.I58</classification>
+<classification authority="ddc">813/.5/4</classification>
+----
+and, wouldn't you know it, it's a bit different from what's in the gutenberg RDF, which uses PS as the top level class, which LC has as an alternate. So which is right? A pull request to change should include a reference, or a discussion of why it ought to be changed, so an admin needed research the matter.
+
+Finally, Wikipedia has a lot of good data in its "infoboxes". The infobox for _Space Viking_ includes info on the series the book is part of, as well as links (denoted by square brackets) to genre, and author. The image field provides a cover.
+
+[source]
+----
+{{Infobox book 
+| name          = Space Viking
+| title_orig    = 
+| translator    = 
+| image         = Image:Space Viking (pb cover 02ba).jpg
+| caption       = First edition
+| author        = [[H. Beam Piper]]
+| illustrator   = 
+| cover_artist  = 
+| country       = United States
+| language      = English
+| series        = The Tanith Series
+| genre         = [[Science fiction novel]]
+| publisher     = [[Ace Books]]
+| release_date  = [[1963 in literature|1963]]
+| media_type    = Print ([[Paperback]])
+| pages         = 191
+| isbn          = 
+| preceded_by   = 
+| followed_by   = Prince of Tanith
+}}
+----
+
+There's plenty of data in various places that could be added to a Gitenberg record.
+
+The https://gist.github.com/eshellman/e1c13ecb97b0da1e4327[next chapter] will discuss metadata that is needed to make GITenberg work for us all, but doesn't exist in the the available metadata.

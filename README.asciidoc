@@ -29,6 +29,7 @@ https://groups.google.com/d/msg/gitenberg-project/i3gV2OjEeAQ/m8bC81tBhokJ[here]
 ** [Github post-commit hooks] — how we know when to rebuild ebooks when changes are made to repos
 ** [Book repo digestor] — Receives a book repo, decides what to do based on the content of the repo
 * link:filetypes[Filetypes]
+* link:metadata/README.ascidoc[Metadata Development] - How GITenberg describes the data in a repo.
 
 == Active goals
 

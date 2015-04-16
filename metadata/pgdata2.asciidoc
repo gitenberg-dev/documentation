@@ -1,0 +1,69 @@
+== GITenberg metadata
+=== Part 2. Combing through the Gutenberg metadata
+
+To recap https://gist.github.com/eshellman/40d85be01acf1172a5c1[Part 1], the Project Gutenberg metadate boils down to the following, expressed in YAML
+
+[source,yaml]
+----
+# Project Gutenberg Metadata
+pgterms:ebook: 
+    url: http://www.gutenberg.org/ebooks/20728
+    marcrel:ill: 
+    -   pgterms:agent: http://www.gutenberg.org/2009/agents/25396
+        pgterms:alias:
+          - Schoenherr, John (John Carl)
+          - Schoenherr, Jack
+        pgterms:birthdate: 1935
+        pgterms:deathdate: 2010
+        pgterms:name: Schoenherr, John
+        pgterms:webpage: 
+        -   url: http://en.wikipedia.org/wiki/John_Schoenherr
+            dcterms:description: Wikipedia
+    
+    dcterms:creator: 
+    -   pgterms:agent: http://www.gutenberg.org/2009/agents/8301
+        pgterms:alias: Piper, Henry Beam
+        pgterms:birthdate: 1904
+        pgterms:deathdate: 1964
+        pgterms:name: Piper, H. Beam
+        pgterms:webpage: 
+        -   url: http://en.wikipedia.org/wiki/H._Beam_Piper
+            dcterms:description: Wikipedia
+
+    dcterms:issued: '2007-03-03'
+    dcterms:language: !dcterms:RFC4646 en
+    dcterms:license: http://www.gutenberg.org/license
+    dcterms:publisher: Project Gutenberg
+    dcterms:rights: Public domain in the USA.
+    dcterms:subject:
+    - !dcterms:LCSH Space warfare -- Fiction
+    - !dcterms:LCSH Revenge -- Fiction
+    - !dcterms:LCC PS
+    - !dcterms:LCSH Science fiction
+    dcterms:title: Space Viking
+    dcterms:type: !dcterms:DCMIType Text
+    pgterms:downloads: 299
+----
+
+From the top.
+
+* "pgterms" is a vocabulary specific to Project Gutenberg. The url for this vocabulary given in the RDF, http://www.gutenberg.org/2009/pgterms/ is a 404. 
+* "pgterms:agent" refers to creator entities. http://www.gutenberg.org/2009/agents/8301 is the identifier given to H. Beam Piper; That's also a 404, but you might want to look at http://www.gutenberg.org/ebooks/author/8301 or http://www.gutenberg.org/ebooks/author/25396
+**  In a relational database, the metadata for authors and illustrators would be represented with a foreign key to an agent table. 
+** For GITenberg, it makes sense to to maintain author metadata separately, on the theory that when an author dies, you should have to update the metadata for every single book the author has written.
+** It also makes sense to link to "authority files" for agent metadata. so for example, we could enter http://viaf.org/viaf/81055793/ into the H. Beam Piper agent field and pull back the other agent metadata as needed.
+* the agents in the pg metadata use "relations". For illustrators, the relation used is "marcrel:ill" which comes from MARC's relators: http://www.loc.gov/marc/relators/relaterm.html, while for authors the dcterms:creator (Dublin Core) relation is used. MARC has the "aut" relator which means the same thing.
+* dcterms:issued: and dcterms:publisher: refer to Project Gutenberg's publication of the ebook, not to the publication of the print original. Surprisingly, the metadata makes no attempt to identify or refer to the original print edition its made from. When GITenberg starts making version of the ebook, what should it be saying in these fields, and should it even be trying?
+* dcterms:subject: refer to Library of congress subject headings and class codes. As Alex points out in the Google Group, the values aren't URIs, they're text. We should be able to do better at normalization.
+* pgterms:downloads: the downloads number refers to a prior week. There's no date context for this number, so it doesn't seem very useful. I told you RDF wasn't very good at representing dynamic state, and here's a good example. You can _do_ it, but it's more work than you really want.
+* dcterms:type: !dcterms:DCMIType Text. Apparently this is either audio or text. A verbose bit.
+
+Conspicuous by its absence is a dcterms:description element. To see how representative _Space Viking_ is, Raymond did a predicate analysis of the entire PG RDF corpus. It's here: https://gist.github.com/rdhyee/8f84142f808d36796fa3
+
+You can see that the file manifests take up a big chunk of the metadata as there are 654,523 files in all.
+
+Apparently 37,199 of the 48,538 ebooks have descriptions. Only 10 of them don't have titles. 3127 of them include a table of contents in the metadata. There are plenty more relators- editors and translators head the list.
+
+The other category of metadata are taken up by a bunch of MARC-related fields, the most common being 9,238 appearances of marc901 and 3,067 appearances of marc010. MARC 901 is bizarre because it's a local data field- used by libraries for strictly local purposes. MARC 010 is the library of congress control number, or lccn. Other information in MARC fields includes some publication info, uniform title, series info, production credits, and some edition notes.
+
+In the https://gist.github.com/eshellman/6f0e6cd30fe62cfc9266[next chapter], I'll look at other metadata sources that we could bring into the Gitenberg metadata, including data from library catalogs.
