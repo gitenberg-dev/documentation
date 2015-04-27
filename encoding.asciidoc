@@ -1,20 +1,14 @@
-The https://en.wikipedia.org/wiki/Character_encoding[character encoding] of GITenberg books should always be https://en.wikipedia.org/wiki/UTF-8[UTF-8] (aka Unicode).  Project Gutenberg source files were often created before Unicode existed and need to be converted.
+The https://en.wikipedia.org/wiki/Character_encoding[character encoding] of GITenberg books 
+should always be https://en.wikipedia.org/wiki/UTF-8[UTF-8] (aka Unicode).  
+Project Gutenberg source files were often created before Unicode existed and need to be converted.
+
+If you get an error like the following, you will need to do this step:
+
+    pandoc: Cannot decode byte '\xb0': Data.Text.Encoding.Fusion.streamUtf8: Invalid UTF-8 stream
+
 
 To re-encode a file as UTF-8, you need to use the `iconv` commandline tool.
 
-### Steps:
+    iconv -c -t "UTF-8" < input.html > output.asciidoc
 
-1. Discover what current character encoding. (**How? TODO**)  One http://unix.stackexchange.com/a/11607[possible approach] is to use the `file` utility -- e.g.,
-+
-    file 2814.txt
-+
-to get
-+
-     2814.txt:         ASCII English text, with CRLF line terminators
-
-2. use iconv to create a new utf-8 file
-
-    iconv -f "<source format>" -t "UTF-8" <bookid>.txt > <newfile>.txt
-
-3. Commit the new file to git and push to github
-4. Create a pull request to the 100books organization
+For instance, if 164-h/164-h.htm
