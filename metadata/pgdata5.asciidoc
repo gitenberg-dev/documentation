@@ -1,5 +1,5 @@
 == GITenberg metadata
-=== Part 4. Metadata targets
+=== Part 5. Metadata targets
 
 
 ==== Bibframe/MARC

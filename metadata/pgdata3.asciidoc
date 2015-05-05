@@ -1,7 +1,7 @@
 == GITenberg metadata
 === Part 3. Other sources of metadata
 
-In https://gist.github.com/eshellman/7a6d34c88e797b439938[Part 2] we looked at the data already in project Gutenberg. Now we're going to want to bring in metadata from other sources. OpenLibrary is a source of metadata with a reasonably well designed API. It returns JSON, which can be readily converted to yaml
+In link:pgdata2.asciidoc[Part 2] we looked at the data already in project Gutenberg. Now we're going to want to bring in metadata from other sources. OpenLibrary is a source of metadata with a reasonably well designed API. It returns JSON, which can be readily converted to yaml
 
 The OpenLibrary metadata for one edition (manifestation) of Space Viking is here:
 
@@ -103,4 +103,4 @@ Finally, Wikipedia has a lot of good data in its "infoboxes". The infobox for _S
 
 There's plenty of data in various places that could be added to a Gitenberg record.
 
-The https://gist.github.com/eshellman/e1c13ecb97b0da1e4327[next chapter] will discuss metadata that is needed to make GITenberg work for us all, but doesn't exist in the the available metadata.
+The link:pgdata4.asciidoc[next chapter] will discuss metadata that is needed to make GITenberg work for us all, but doesn't exist in the the available metadata.
