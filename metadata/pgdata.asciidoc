@@ -1,0 +1,227 @@
+== GITenberg metadata
+=== Part 1. Boiling down the Gutenberg RDF
+
+One of the objectives of GITenberg is to provide a github-flavored pathway for the improvement of the metadata for Project Gutenberg ebooks. This runs in two directions:
+. Improving the accessibility and usability of PG metadata
+. Improving the quality and completeness of PG metadata
+
+The first step in this effort is to figure out what metadata already exists in Project Gutenberg.
+
+Project Gutenberg provides periodic dumps of its metadata in a set of RDF files. These are the metadata used to make the "bibrec" pages and also to make ebook files (an EPUB package, for example, stores this metadata in its "OPF" file). The dump consists of a zipped tarfile containing one rdf file per pg text. In the second tranche of repos moved to github (roughly those above 10,000), Seth added the rdf file for each text to the corresponding archive. This saves us from having to deal with opening the archive and letting our operating systems deal with 50,000 directories in a directory.
+
+The rdf file corresponding to #20728, "Space Viking" is here: https://gist.github.com/eshellman/90f1996b33e20e069040
+
+it starts out
+[source,xml]
+----
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xml:base="http://www.gutenberg.org/"
+  xmlns:pgterms="http://www.gutenberg.org/2009/pgterms/"
+  xmlns:cc="http://web.resource.org/cc/"
+  xmlns:dcam="http://purl.org/dc/dcam/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:marcrel="http://id.loc.gov/vocabulary/relators/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+>
+  <cc:Work rdf:about="">
+    <cc:license rdf:resource="http://www.gnu.org/licenses/gpl.html"/>
+  </cc:Work>
+  <pgterms:ebook rdf:about="ebooks/20728">
+    <dcterms:language>
+      <rdf:Description rdf:nodeID="N724c8e78b9c84f9598157b0dd7c24cfb">
+        <rdf:value rdf:datatype="http://purl.org/dc/terms/RFC4646">en</rdf:value>
+      </rdf:Description>
+    </dcterms:language>
+----
+
+So far, the translation of this into English is:
+
+==========================
+The resource identified by http://www.gutenberg.org/ has a GPL License.
+The resource identified by http://www.gutenberg.org/ebooks/20728 is an ebook in English.
+==========================
+The goal of GITenberg is to present metadata in a way that humans can read and edit, and git can track changes. RDF is a poor answer to these requirements, at least in this xml serialization. 
+
+We can take a step towards making this more usable by using the json-ld serialization for the rdf. I re-serialized the RDF XML file for Space Viking  using the rdf translator at http://rdf-translator.appspot.com/ The result is available here: https://gist.github.com/eshellman/140258d9958c97580b42
+
+it starts out:
+[source,json]
+----
+{
+  "@context": {
+    "cc": "http://web.resource.org/cc/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "marcrel": "http://id.loc.gov/vocabulary/relators/",
+    "pgterms": "http://www.gutenberg.org/2009/pgterms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:N2a40c4f7b6b8445b86d117253d79e17f",
+      "dcam:memberOf": {
+        "@id": "dcterms:IMT"
+      },
+      "rdf:value": {
+        "@type": "dcterms:IMT",
+        "@value": "application/x-mobipocket-ebook"
+      }
+    },
+----
+
+The translation of this is:
+
+==========================
+There is a mime-type with value "application/x-mobipocket-ebook"
+==========================
+This is significantly better for use with git, but not much of an improvement for readability. The biggest difficulty for both these serializations is the explicit "blank nodes" with id's that look like "_:N2a40c4f7b6b8445b86d117253d79e17f". Blank nodes are what the RDF model uses to convert hierarchical data structures into super-simple data triples. RDF processors easily ingest the triples, but humans find them inscrutable. There are also some deep problems with blank nodes, which I've blogged about. http://go-to-hellman.blogspot.com/2009/11/blank-node-bother-and-rdf-copymess.html
+
+Fortunately, you can remove the blank nodes without changing the representation a bit. I wrote a little script to do that. https://gist.github.com/eshellman/b717d6b1b49498140218
+
+The result is here: https://gist.github.com/eshellman/b8fbd310c5ec2d77d949
+
+It starts
+[source,json]
+----
+{
+  "@context": {
+    "cc": "http://web.resource.org/cc/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "marcrel": "http://id.loc.gov/vocabulary/relators/",
+    "pgterms": "http://www.gutenberg.org/2009/pgterms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "http://www.gutenberg.org/files/20728/20728.txt",
+      "@type": "pgterms:file",
+      "dcterms:extent": 414640,
+      "dcterms:format": {
+        "dcam:memberOf": {
+          "@id": "dcterms:IMT"
+        },
+        "rdf:value": {
+          "@type": "dcterms:IMT",
+          "@value": "text/plain; charset=us-ascii"
+        }
+      },
+      "dcterms:isFormatOf": {
+        "@id": "http://www.gutenberg.org/ebooks/20728"
+      },
+      "dcterms:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2012-07-02T13:51:54"
+      }
+    },
+----
+
+As you can see, it's starting to be slightly comprehensible.
+
+Before I translate this, I'll go one more step, converting the JSON in YAML: https://gist.github.com/eshellman/0577a24406be521dfe78
+
+YAML is a data serialization designed to be reader friendly. It pretty much nails our application; it's also used in applications such as Pandoc, the open-source swiss-army knife of document converters.
+Take a look at it on GitHub, you'll see that it GitHub does a lovely job presenting the YAML file.
+
+Now we have, to start:
+[source,yaml]
+----
+'@context':
+  cc: http://web.resource.org/cc/
+  dcam: http://purl.org/dc/dcam/
+  dcterms: http://purl.org/dc/terms/
+  marcrel: http://id.loc.gov/vocabulary/relators/
+  pgterms: http://www.gutenberg.org/2009/pgterms/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xsd: http://www.w3.org/2001/XMLSchema#
+'@graph':
+- '@id': http://www.gutenberg.org/files/20728/20728.txt
+  '@type': pgterms:file
+  dcterms:extent: 414640
+  dcterms:format:
+    dcam:memberOf:
+      '@id': dcterms:IMT
+    rdf:value:
+      '@type': dcterms:IMT
+      '@value': text/plain; charset=us-ascii
+  dcterms:isFormatOf:
+    '@id': http://www.gutenberg.org/ebooks/20728
+  dcterms:modified:
+    '@type': xsd:dateTime
+    '@value': '2012-07-02T13:51:54'
+----
+This says:
+
+==========================
+    There is a file with id http://www.gutenberg.org/files/20728/20728.txt
+    which has size 414640
+    and mime-type text/plain; charset=us-ascii
+    which is a format of http://www.gutenberg.org/ebooks/20728
+    and was last modified on '2012-07-02T13:51:54'
+==========================
+and if you are a metadata-head, it's reasonably straightforward to understand.
+
+Now that we know what the metadata is saying, the obvious question is: _Why on earth is PG reporting file manifests in RDF???_
+
+I think it's appropriate to forgive the very smart people who decided to put a file manifest in RDF, because it was a very different time and who could have foreseen back then which way technology would go.
+
+RDF's strength is moving data from silo to silo. One of its weaknesses is representing dynamic state. Today we have file systems in the cloud that can report a file's size,  minute by minute. Trying to mirror the information in a file system is a set of bugs waiting to happen. 
+
+Our next step is to toss out all that metadata about files so we can focus on the content metadata.
+
+Also on the chopping block is the assertion about http://www.gutenberg.org/ being GPL. First of all, I think the assertion is *trying* to say that the RDF file itself is GPL, because why would you put an assertion about PG as a whole in every rdf file? Even if it's trying to make an assertion obout the file itself, it doesn't make much sense (Metadata is not generally copyrightable, so GPL has no force.)
+
+In addition, I swap in YAML's value typing machinery (see the !values below) for RDF's somewhat clumsy machinery. I factor out the context, as it's machine oriented, giving precise meaning to the prefixes used, and it'll be the same for every repo. The graph id, needed for RDF technicalities, does more harm than good in the yaml because Github gives us all the id machinery we need.
+
+We're left with what I call simple PG YAML: https://gist.github.com/eshellman/2863fc5ffb129714f617
+
+It's boiled down enough that I can quote it here in its entirety:
+
+[source,yaml]
+----
+# Project Gutenberg Metadata
+pgterms:ebook: 
+    url: http://www.gutenberg.org/ebooks/20728
+    marcrel:ill: 
+    -   pgterms:agent: http://www.gutenberg.org/2009/agents/25396
+        pgterms:alias:
+          - Schoenherr, John (John Carl)
+          - Schoenherr, Jack
+        pgterms:birthdate: 1935
+        pgterms:deathdate: 2010
+        pgterms:name: Schoenherr, John
+        pgterms:webpage: 
+        -   url: http://en.wikipedia.org/wiki/John_Schoenherr
+            dcterms:description: Wikipedia
+    
+    dcterms:creator: 
+    -   pgterms:agent: http://www.gutenberg.org/2009/agents/8301
+        pgterms:alias: Piper, Henry Beam
+        pgterms:birthdate: 1904
+        pgterms:deathdate: 1964
+        pgterms:name: Piper, H. Beam
+        pgterms:webpage: 
+        -   url: http://en.wikipedia.org/wiki/H._Beam_Piper
+            dcterms:description: Wikipedia
+
+    dcterms:issued: '2007-03-03'
+    dcterms:language: !dcterms:RFC4646 en
+    dcterms:license: http://www.gutenberg.org/license
+    dcterms:publisher: Project Gutenberg
+    dcterms:rights: Public domain in the USA.
+    dcterms:subject:
+    - !dcterms:LCSH Space warfare -- Fiction
+    - !dcterms:LCSH Revenge -- Fiction
+    - !dcterms:LCC PS
+    - !dcterms:LCSH Science fiction
+    dcterms:title: Space Viking
+    dcterms:type: !dcterms:DCMIType Text
+    pgterms:downloads: 299
+----
+
+I think I'll stop here, because link:pgdata2.asciidoc[the next chapter] will be about the metadata rather than how it might be presented, which is a different topic. 

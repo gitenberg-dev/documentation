@@ -1,0 +1,14 @@
+== GITenberg metadata
+=== Part 5. Metadata targets
+
+
+==== Bibframe/MARC
+
+==== Schema.org
+
+==== TEI
+
+==== ONIX
+
+==== BIBO
+
