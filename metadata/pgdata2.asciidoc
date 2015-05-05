@@ -53,8 +53,10 @@ From the top.
 ** For GITenberg, it makes sense to to maintain author metadata separately, on the theory that when an author dies, you should have to update the metadata for every single book the author has written.
 ** It also makes sense to link to "authority files" for agent metadata. so for example, we could enter http://viaf.org/viaf/81055793/ into the H. Beam Piper agent field and pull back the other agent metadata as needed.
 ** The PG corpus has a number of duplicate entries for authors, despite the nominally canonical IDs
++
 Tom Morris did a quick recheck of this. Here is a sample of some of his corrections after using the clustering facility of OpenRefine . Corrected (nominally) version in the first column.
-.
++
+|====
 |American Sunday-School Union |Union, American Sunday-School
 |Bakunin, Mikhail Aleksandrovic |Bakunin, Mikhail Aleksandrovich
 |Barine, Arvède |Barine, Arvede
@@ -65,7 +67,10 @@ Tom Morris did a quick recheck of this. Here is a sample of some of his correcti
 |La Monte, Robert Rives |Monte, Robert Rives la
 |Levett-Yeats, S. (Sidney) |Levett Yeats, S. (Sidney)
 |Library of Congress. Copyright Office |Copyright Office. Library of Congress.
+|====
++
 On the plus side, there are only a couple dozen of these records in the 20k+ authors, so it's a pretty small problem, but it does indicate that the PG author records can't be relied upon to be unique.
+
 * the agents in the pg metadata use "relations". For illustrators, the relation used is "marcrel:ill" which comes from MARC's relators: http://www.loc.gov/marc/relators/relaterm.html, while for authors the dcterms:creator (Dublin Core) relation is used. MARC has the "aut" relator which means the same thing.
 * dcterms:issued: and dcterms:publisher: refer to Project Gutenberg's publication of the ebook, not to the publication of the print original. Surprisingly, the metadata makes no attempt to identify or refer to the original print edition its made from. When GITenberg starts making version of the ebook, what should it be saying in these fields, and should it even be trying?
 * dcterms:subject: refer to Library of congress subject headings and class codes. As Alex points out in the Google Group, the values aren't URIs, they're text. We should be able to do better at normalization.
