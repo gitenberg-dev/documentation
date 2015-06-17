@@ -1,8 +1,37 @@
 == GITenberg metadata
-=== Part 5. Metadata targets
+=== Part 5. Implementation / Targets
+
+Code implementing a GITenberg metadata is in the https://github.com/gitenberg-dev/metadata[gitenberg-dev/metadata repo]. The generic metadata object is called https://github.com/gitenberg-dev/metadata/pandata.py[pandata], by analogy to pandoc.
+
+
+Property names are defined with the aim to bridge the chasm between Gutenberg/GITenberg to MARC and other metadata target formats. In the YAML file, properties are presented in alphabetic order to facilitate version control. 
+
+We've used underscores denote gitenberg specific metadata, thus _repo denotes the string identifying the repo. The sample "pandata" file is https://github.com/gitenberg-dev/metadata/blob/master/samples/pandata.yaml[here]
 
 
 ==== Bibframe/MARC
+
+Code implementing a conversion from  MARC is in the https://github.com/gitenberg-dev/metadata/marc.py[marc module].
+
+===== Contributors
+Contributors are handled with property names based on http://www.loc.gov/marc/relators/relaterm.htm[marc relator codes] In the first version, 4 types of contributors are handled, which I think covers the vast majority of contributors called out in existing Gutenberg metadata. These 4 are:
+
+- author
+- illustrator
+- editor_of_a_compilation
+- translator
+
+Each contributor is assumed to be a list of contributors, denoted by authors, illustrators, translators and (yes) editor_of_a_compilations.
+
+It's expected that contributors will eventually be independent entities with their own metadata, linked with a url, but for now we keep everything in line with properties such as author_name and author_sortname formed by adding on to the marc relator name.
+
+===== Publisher
+
+MARC regards "Project Gutenberg" as the publisher of these editions, so we're not going to rock the boat.
+
+===== subjects
+ 
+Here we use custom constructors to add type information to subject headings. library of congress headings and classes are supported.
 
 ==== Schema.org
 
