@@ -33,6 +33,32 @@ MARC regards "Project Gutenberg" as the publisher of these editions, so we're no
  
 Here we use custom constructors to add type information to subject headings. library of congress headings and classes are supported.
 
+===== rights
+
+For GITenberg, we focus on standard rights statements that allow free use. Possible values, along with defining urls. (how do we manage versioning?)
+
+- BY-NC-ND, Creative Commons Attribution-NonCommercial-NoDerivs', http://creativecommons.org/licenses/by-nc-nd/3.0/
+- BY-NC-SA, Creative Commons Attribution-NonCommercial-ShareAlike', http://creativecommons.org/licenses/by-nc-sa/3.0/
+- BY-NC, Creative Commons Attribution-NonCommercial, 'http://creativecommons.org/licenses/by-nc/3.0/
+- BY-ND, Creative Commons Attribution-NoDerivs, http://creativecommons.org/licenses/by-nd/3.0/ 
+- BY-SA, Creative Commons Attribution-ShareAlike, http://creativecommons.org/licenses/by-sa/3.0/
+- BY, 'Creative Commons Attribution, http://creativecommons.org/licenses/by/3.0/
+- CC0, No Rights Reserved, http://creativecommons.org/about/cc0
+- GFDL, GNU Free Documentation License, http://www.gnu.org/licenses/fdl-1.3-standalone.html
+- LAL, Licence Art Libre, http://artlibre.org/licence/lal/
+- PD-US, Public Domain US, http://creativecommons.org/about/pdm
+
+==== Covers
+
+The property 'covers' is considered a list of covers. Each cover should have a 'filename' which includes a path from the root of the repo. If the 'rights' property could be different from the rest of the book it's specified for the cover, otherwise rights are inherited from the book.
+
+Covers can be of different types. To start, we define:
+
+- archival: a scan or image of a print edition
+- archival-back:  a scan or image of a the back cover of a print edition
+- original: a newly designed cover image specifically designed for an ebook
+- generated: a cover produced automatically or semiautomatically using software.
+
 ==== Schema.org
 
 ==== TEI
