@@ -18,6 +18,8 @@ What's changed with public domain digital books, is that there's no need for a "
 
 The consensus in the GITenberg core team has been that we need to make room for different types of covers. Each cover included in a repo will need its own metadata- license, cover type, attribution, and perhaps other things. And there needs to be available for every book an attractive public domain or CC0 cover that works well in a digital display.
 
+Because covers are used to identify editions in the marketplace, it's appropriate, in the GITenberg context, to assign ISBNs to editions on a cover-by-cover basis. Since GITenberg will offer multiple formats and won't need to track them, if we use ISBNs, we won't use a different one for each format, but instead fix the ISBN to the cover. In the http://www.bic-media.com/dmrn/codelists/onix-codelist-10.htm[ONIX file type code list], we would use '000', the Epublication "content package".
+
 ==== Source data
 
 Most PG texts I've seen have some indicators of the production process. For example, in the text of PG's Space Viking there is:

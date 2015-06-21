@@ -1,8 +1,63 @@
 == GITenberg metadata
-=== Part 5. Metadata targets
+=== Part 5. Implementation / Targets
+
+Code implementing a GITenberg metadata is in the https://github.com/gitenberg-dev/metadata[gitenberg-dev/metadata repo]. The generic metadata object is called https://github.com/gitenberg-dev/metadata/pandata.py[pandata], by analogy to pandoc.
+
+
+Property names are defined with the aim to bridge the chasm between Gutenberg/GITenberg to MARC and other metadata target formats. In the YAML file, properties are presented in alphabetic order to facilitate version control. 
+
+We've used underscores denote gitenberg specific metadata, thus _repo denotes the string identifying the repo. The sample "pandata" file is https://github.com/gitenberg-dev/metadata/blob/master/samples/pandata.yaml[here]
 
 
 ==== Bibframe/MARC
+
+Code implementing a conversion from  MARC is in the https://github.com/gitenberg-dev/metadata/marc.py[marc module].
+
+===== Contributors
+Contributors are handled with property names based on http://www.loc.gov/marc/relators/relaterm.htm[marc relator codes] In the first version, 4 types of contributors are handled, which I think covers the vast majority of contributors called out in existing Gutenberg metadata. These 4 are:
+
+- author
+- illustrator
+- editor_of_a_compilation
+- translator
+
+Each contributor is assumed to be a list of contributors, denoted by authors, illustrators, translators and (yes) editor_of_a_compilations.
+
+It's expected that contributors will eventually be independent entities with their own metadata, linked with a url, but for now we keep everything in line with properties such as author_name and author_sortname formed by adding on to the marc relator name.
+
+===== Publisher
+
+MARC regards "Project Gutenberg" as the publisher of these editions, so we're not going to rock the boat.
+
+===== subjects
+ 
+Here we use custom constructors to add type information to subject headings. library of congress headings and classes are supported.
+
+===== rights
+
+For GITenberg, we focus on standard rights statements that allow free use. Possible values, along with defining urls. (how do we manage versioning?)
+
+- BY-NC-ND, Creative Commons Attribution-NonCommercial-NoDerivs', http://creativecommons.org/licenses/by-nc-nd/3.0/
+- BY-NC-SA, Creative Commons Attribution-NonCommercial-ShareAlike', http://creativecommons.org/licenses/by-nc-sa/3.0/
+- BY-NC, Creative Commons Attribution-NonCommercial, 'http://creativecommons.org/licenses/by-nc/3.0/
+- BY-ND, Creative Commons Attribution-NoDerivs, http://creativecommons.org/licenses/by-nd/3.0/ 
+- BY-SA, Creative Commons Attribution-ShareAlike, http://creativecommons.org/licenses/by-sa/3.0/
+- BY, 'Creative Commons Attribution, http://creativecommons.org/licenses/by/3.0/
+- CC0, No Rights Reserved, http://creativecommons.org/about/cc0
+- GFDL, GNU Free Documentation License, http://www.gnu.org/licenses/fdl-1.3-standalone.html
+- LAL, Licence Art Libre, http://artlibre.org/licence/lal/
+- PD-US, Public Domain US, http://creativecommons.org/about/pdm
+
+==== Covers
+
+The property 'covers' is considered a list of covers. Each cover should have a 'filename' which includes a path from the root of the repo. If the 'rights' property could be different from the rest of the book it's specified for the cover, otherwise rights are inherited from the book.
+
+Covers can be of different types. To start, we define:
+
+- archival: a scan or image of a print edition
+- archival-back:  a scan or image of a the back cover of a print edition
+- original: a newly designed cover image specifically designed for an ebook
+- generated: a cover produced automatically or semiautomatically using software.
 
 ==== Schema.org
 
