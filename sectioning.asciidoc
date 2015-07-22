@@ -1,7 +1,7 @@
 Sectioning
 ----------
 
-The project's preferred markup format is http://asciidoctor.org[Asciidoc].  
+The project's preferred markup format is http://asciidoc.org[Asciidoc].  
 Asciidoc has a lot of great features, but denoting title and chapter information is the first step in making beautiful ebooks.
 
 == Titles
@@ -10,13 +10,13 @@ The title of the book should have a row of hyphens underneath.  This turns it in
   Alice in Wonderland
   -------------------
 
-Subtitles are not possible.
+Subtitles are not supported in Asciidoc, but can be included in the title separated by a colon.  They will be included in works' metadata.
 
 == Chapters, sections, and subsections
 Chapter headings should have two equals signs.  This turns into a level-two header (+<h2>+ tag in HTML).
 
   == Chapter 1
-  Paragraph text &etc
+  Paragraph text &c.
   == Chapter 2
 
 If the book is broken up into smaller subsections than chapters, you can use more equal signs:
@@ -37,9 +37,9 @@ These are invisible in the formatted output.
   First came ten soldiers carrying clubs; these were all shaped like the three
   gardeners, oblong and flat, with their hands and feet at the corners: next the
   ten courtiers; these were ornamented all over with diamonds, and walked two
-  and [[page-115]] two, as the soldiers did. After these came the royal children;
+  and [[source-page-115]] two, as the soldiers did. After these came the royal children;
   there were ten of them, and the little dears came jumping merrily along hand in
   hand, in couples: they were all ornamented with hearts. 
 
-The anchor should be of the form `[[page-x]]` where `x` is the number of the page.
+The anchor should be of the form `[[source-page-x]]` where `x` is the number of the page.
 If a word is hypenated across the page, put the anchor in the next available whitespace.
