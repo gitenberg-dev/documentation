@@ -1,27 +1,22 @@
 == GITenberg metadata
 === Part 5. Implementation / Targets
 
-Code implementing a GITenberg metadata is in the https://github.com/gitenberg-dev/metadata[gitenberg-dev/metadata repo]. The generic metadata object is called https://github.com/gitenberg-dev/metadata/pandata.py[pandata], by analogy to pandoc.
+Code implementing a GITenberg metadata is in the https://github.com/gitenberg-dev/metadata[gitenberg-dev/metadata repo]. The generic metadata object is called https://github.com/gitenberg-dev/metadata/pandata.py[pandata], by analogy to pandoc. 
 
 
 Property names are defined with the aim to bridge the chasm between Gutenberg/GITenberg to MARC and other metadata target formats. In the YAML file, properties are presented in alphabetic order to facilitate version control. 
 
-We've used underscores denote gitenberg specific metadata, thus _repo denotes the string identifying the repo. The sample "pandata" file is https://github.com/gitenberg-dev/metadata/blob/master/samples/pandata.yaml[here]
+We've used leading underscores denote gitenberg specific metadata, thus _repo denotes the string identifying the repo. A sample "pandata" file is https://github.com/gitenberg-dev/metadata/blob/master/samples/pandata.yaml[here] (We'll use "metadata.yaml" as our standard finel name when this is in a Gitenberg repo.
 
 
 ==== Bibframe/MARC
 
 Code implementing a conversion from  MARC is in the https://github.com/gitenberg-dev/metadata/marc.py[marc module].
 
-===== Contributors
-Contributors are handled with property names based on http://www.loc.gov/marc/relators/relaterm.htm[marc relator codes] In the first version, 4 types of contributors are handled, which I think covers the vast majority of contributors called out in existing Gutenberg metadata. These 4 are:
+===== Creators and Contributors
+Creators and Contributors are handled with property names based on http://www.loc.gov/marc/relators/relaterm.htm[marc relator codes], grouped under a creator and contributor top-level attribute. There are 25 types used in Project Gutenberg; we'll add "Book_producer" so we can add credits for the people who worked on producing the edition. See the link:pandata_attribute_dictionary.yaml[attribute dictionary] for details
 
-- author
-- illustrator
-- editor_of_a_compilation
-- translator
-
-Each contributor is assumed to be a list of contributors, denoted by authors, illustrators, translators and (yes) editor_of_a_compilations.
+We choose to provide singular and plural versions of these 
 
 It's expected that contributors will eventually be independent entities with their own metadata, linked with a url, but for now we keep everything in line with properties such as author_name and author_sortname formed by adding on to the marc relator name.
 
@@ -50,7 +45,7 @@ For GITenberg, we focus on standard rights statements that allow free use. Possi
 
 ==== Covers
 
-The property 'covers' is considered a list of covers. Each cover should have a 'filename' which includes a path from the root of the repo. If the 'rights' property could be different from the rest of the book it's specified for the cover, otherwise rights are inherited from the book.
+The property 'covers' is considered a list of covers. Each cover should have an 'image_path' which includes a path from the root of the repo. If the 'rights' property could be different from the rest of the book it's specified for the cover, otherwise rights are inherited from the book.
 
 Covers can be of different types. To start, we define:
 
@@ -58,6 +53,7 @@ Covers can be of different types. To start, we define:
 - archival-back:  a scan or image of a the back cover of a print edition
 - original: a newly designed cover image specifically designed for an ebook
 - generated: a cover produced automatically or semiautomatically using software.
+- titlepage_image: sometimes the best image for a cover is an image of the titlepage, which was often ornate.
 
 ==== Schema.org
 
