@@ -24,6 +24,8 @@ contributor: From Dublin Core, a contributor who is not the principle creator.  
     author_of_afterwords: A type of creators/contributors. Value should be a list of author_of_afterwords.
 	author_of_introduction: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code aui
 	author_of_introductions: A type of creators/contributors. Value should be a list of author_of_introductions.
+	book_producer:  A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code bkp
+	book_producers:  A type of creator/contributor. Value should be a list of book_producers
 	collaborator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code clb
 	collaborators: A type of creators/contributors. Value should be a list of contributors.
 	commentator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cmm
@@ -78,9 +80,11 @@ creator: From Dublin Core, usually the principle creators- usually the author, s
 deathdate: Value should be a date. For creator/contributor objects.
 description: Text description.
 edition_note: Descriptive not about the edition. For MARC 250 field.
+funding_info: Text describing the funding for this edition. Used for MARC 536 field.
 gutenberg_agent_id: An agent identifier used in Project Gutenberg.
 gutenberg_bookshelf: Project Gutenberg assigns some books to one or more "bookshelves".
 gutenberg_issued: Project Gutenberg's issuance date.
+gutenberg_transcribers_note: Project Gutenberg includes notes from the transcriber in text; this should be moved into metadata.
 gutenberg_type: Within Project Gutenberg, the item type. Usually "Text"
 identifiers: An object (dict) with one or more identifiers. If there are more than one of each type of identifer, the value of the specific identifier should be a list of values
     goodreads: A number. Can link to goodreads with http://www.goodreads.com/book/show/{%goodreads%}
@@ -94,6 +98,7 @@ identifiers: An object (dict) with one or more identifiers. If there are more th
     unglueit: A number.  Can link to unglueit with https://unglue.it/work/{%unglueit%}
 language_note: Text for MARC 546 field. Usually used to note multiple languages, etc.
 language: An iso code for the item's language usually 2 letters, but could be 3, and might have a locale (zh-TW, for example)
+ocr_file_link: A url leading to the OCR files or OCRed image related to this book
 physical_description_note: Text for MARC 300 field.
 publication_date_original: The publication date  of the edition from which the book is derived.
 production_note: Text for use in MARC 508 field.
@@ -101,7 +106,7 @@ publication_note: Text for MARC 260 field.
 publisher_original: For gutenberg, the original publisher of the edition from which the book is derived.
 publisher: The name of the publisher of an edition.
 rights: A dublin core term, a string describing the usage rights. For example, "Public Domain, US"
-rights_url: A url defining the rights. For example,
+rights_url: A url defining the rights. For example, http://creativecommons.org/about/pdm
 series_note: Text for use in MARC 440 field.
 subjects:  A list of subjects. These can be typed. !lcsh is library of congress subject headings, !lcc is library of congress classification. Use this list for source- http://www.loc.gov/standards/sourcelist/subject.html.  If there's no authority, just leave the value untyped
 summary: Text for use in MARC 520 field.

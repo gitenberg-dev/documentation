@@ -5,7 +5,7 @@ In link:pgdata3.asciidoc[Part 3], I looked at the metadata that's available via 
 
 ==== Housekeeping data
 
-* the Repo URL. For Space Viking, that would be https://github.com/GITenberg/Space-Viking_20728 Unfortunately, because of unicode and OS level issues, it's not as simple as you might think to derive the url from other metadata. And maybe for portability, we should just keep "Space-Viking_20728"
+* the Repo URL. For Space Viking, that would be https://github.com/GITenberg/Space-Viking_20728 Unfortunately, because of unicode and OS level issues, it's not as simple as you might think to derive the url from other metadata. And maybe for portability, we should just keep "Space-Viking_20728". This has been implemented as "_repo"
 * Download URLs. Well maybe not. It probably makes more sense to have a resolver service separate from the repo.
 * version info. Again, maybe not. It probably makes sense to use Github's versioning to keep track of this. On the other hand, downstream sites will need to know this stuff. But a MARC record builder could grab version info directly from Github rather than a version-controlled metadata file.
 * process/toolchain info. This requirement is best understood with an example. We have a tool that changes ascii quotes into typographic quotes. It might not be obvious from inspection of a file that this process has been completed. One way to record this would be to add something like "quotification_completed: March 23, 2015" to the metadata file. I'm not sure if this would be the best way to do this.
