@@ -10,7 +10,8 @@ The tasks that need to be done for these books are documented on the following p
 * link:unicoding[Unicoding]
 * link:sectioning[Sectioning]
 * link:drop-caps[Drop Caps]
-* link:imaging[Imaging]
+* link:imaging[Adding images]
+* link:versioning[Versioning]
 
 == Help us select a starter set of PG texts!
 
@@ -32,3 +33,4 @@ Ideally, we'd like to have a hundred texts to serve as a testbed for the GITenbe
     b. add the url of the repo you've selected, along with your github username to your copy of activerepos.csv
     c. commit the change to your copy
     d. submit a pull request to gitenberg-dev/master
+
