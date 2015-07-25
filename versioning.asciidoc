@@ -18,3 +18,6 @@ The only agreed upon minor revision is a complete epub file built by travis as d
 
 For now, assume that your changes increment the `Patch` value.
 `v0.0.23` would become `v0.0.24`
+
++ http://asciidoc.org/userguide.html#X95[Asciidoc documentation]
++ http://asciidoctor.org/docs/user-manual/#revision-number-date-and-remark[Asciidoctor documentation]
