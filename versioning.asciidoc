@@ -1,10 +1,11 @@
 = Versioning Gitenberg books
 
 Gitenberg uses http://semver.org/[Semantic Versioning] to describe the changes to books over time.
-The current version of a GITenberg book is stored in two places:
+The current version of a GITenberg book is stored in three places:
 
-+ On the 3rd line of the main book asciidoc file (prefixed with `v`)
 + As a git tag
++ As the value for `_version` in repo's link:metadata/pandata_attribute_dictionary.yaml[metadata.yaml]
++ On the 3rd line of the main book asciidoc file (prefixed with `v`)
 
 [source, asciidoc]
 ----

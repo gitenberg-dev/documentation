@@ -5,6 +5,7 @@
 # it's a mistake to have both.
 
 _repo: the GITenberg repo name. 
+_version: the version string. Should come from the repo tag.
 agent_name: the name of the creator/contributor, for use in creator/contributor objects
 agent_sortname: the agent_name, arranged for sorting, typically last name first
 alias: A name or list of names for a creator/contributor
