@@ -1,22 +1,26 @@
-Sectioning
-----------
+= Sectioning
 
-The project's preferred markup format is http://asciidoc.org[Asciidoc].  
+The project's preferred markup format is http://asciidoc.org[Asciidoc].
 Asciidoc has a lot of great features, but denoting title and chapter information is the first step in making beautiful ebooks.
 
 == Titles
-The title of the book should have a row of hyphens underneath.  This turns it into a level-one header (+<h1>+ in HTML).
+The title of the book should be on the first line of the asciidoc file.
+It should be prefixed with a single `=`.
+This turns it into a level-one header (+<h1>+ in HTML).
 
-  Alice in Wonderland
-  -------------------
+  = Alice in Wonderland
 
-Subtitles are not supported in Asciidoc, but can be included in the title separated by a colon.  They will be included in works' metadata.
+Subtitles are not well supported in Asciidoc,
+but can be included in the title separated by a colon.
+They will be included in works' metadata.
 
 == Chapters, sections, and subsections
 Chapter headings should have two equals signs.  This turns into a level-two header (+<h2>+ tag in HTML).
 
   == Chapter 1
+
   Paragraph text &c.
+
   == Chapter 2
 
 If the book is broken up into smaller subsections than chapters, you can use more equal signs:
@@ -28,9 +32,12 @@ If a chapter or section heading has a title as well as a number, put them all on
 
   == Chapter 5: Advice from a Caterpillar
 
+
 == Pages
+
 Where a Gitenberg book has scans of the original available,
-you can choose to include page-markers (http://asciidoc.org/userguide.html#X30[anchors] in Asciidoc)
+you can choose to include page-markers 
+(http://asciidoc.org/userguide.html#X30[anchors] in Asciidoc and http://asciidoctor.org/docs/user-manual/#anchordef[asciidoctor])
 to make it easier to relate the text to the original images.
 These are invisible in the formatted output.
 
@@ -39,7 +46,7 @@ These are invisible in the formatted output.
   ten courtiers; these were ornamented all over with diamonds, and walked two
   and [[source-page-115]] two, as the soldiers did. After these came the royal children;
   there were ten of them, and the little dears came jumping merrily along hand in
-  hand, in couples: they were all ornamented with hearts. 
+  hand, in couples: they were all ornamented with hearts.
 
 The anchor should be of the form `[[source-page-x]]` where `x` is the number of the page.
-If a word is hypenated across the page, put the anchor in the next available whitespace.
+If a word is hyphenated across the page, put the anchor in the next available whitespace.
