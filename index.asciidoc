@@ -1,7 +1,15 @@
 = GITenberg documentation
 Gitenberg team
 v0.0.1
-:toc:
+:toc: left
+
+[WARNING]
+.ALPHA level documentation
+====
+This documentation is at an alpha level of quality.
+Please help us improve this
+https://github.com/gitenberg-dev/documentation[documentation on github]
+====
 
 :leveloffset: +1
 
@@ -26,6 +34,17 @@ include::unicoding.asciidoc[]
 
 include::versioning.asciidoc[]
 
+[appendix]
+== Active Repositories
+
+[WARNING]
+.Warning about this section
+====
+This section is out of date as of 2015-07-30, see https://github.com/gitenberg-dev/Second-Folio/blob/master/Gitenberg%20Book%20List.csv[Second-Folio] for a more up to date list.
+====
+[format="csv", options="header"]
+|===
 include::activerepos.csv[]
+|===
 
 :leveloffset: -1
