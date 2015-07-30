@@ -42,6 +42,7 @@ include::versioning.asciidoc[]
 ====
 This section is out of date as of 2015-07-30, see https://github.com/gitenberg-dev/Second-Folio/blob/master/Gitenberg%20Book%20List.csv[Second-Folio] for a more up to date list.
 ====
+
 [format="csv", options="header"]
 |===
 include::activerepos.csv[]
