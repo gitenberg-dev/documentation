@@ -1,0 +1,24 @@
+= Versioning Gitenberg books
+
+Gitenberg uses http://semver.org/[Semantic Versioning] to describe the changes to books over time.
+The current version of a GITenberg book is stored in three places:
+
++ As a git tag
++ As the value for `_version` in repo's link:metadata/pandata_attribute_dictionary.yaml[metadata.yaml]
++ On the 3rd line of the main book asciidoc file (prefixed with `v`)
+
+[source, asciidoc]
+----
+= Title
+Author
+RevisionNumber, RevisionDate
+----
+
+A semantic version is in the format of `Major.Minor.Patch`.
+The only agreed upon minor revision is a complete epub file built by travis as described in the https://github.com/gitenberg-dev/Second-Folio/[Second-Folio] collection.
+
+For now, assume that your changes increment the `Patch` value.
+`v0.0.23` would become `v0.0.24`
+
++ http://asciidoc.org/userguide.html#X95[Asciidoc documentation]
++ http://asciidoctor.org/docs/user-manual/#revision-number-date-and-remark[Asciidoctor documentation]
