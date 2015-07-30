@@ -6,6 +6,7 @@ setup_git() {
 }
 
 commit_website_files() {
+  git fetch origin
   git checkout -b gh-pages
   git add . *.html
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
@@ -13,7 +14,7 @@ commit_website_files() {
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/gitenberg-dev/documentation > /dev/null 2>&1
-  git push --quiet --set-upstream origin-pages gh-pages
+  git push -f --set-upstream origin-pages gh-pages
 }
 
 setup_git
