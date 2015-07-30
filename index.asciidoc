@@ -1,0 +1,33 @@
+= GITenberg documentation
+Gitenberg team
+v0.0.1
+:toc:
+
+:leveloffset: +1
+
+include::how_to.asciidoc[]
+
+// include::metadata[]
+
+
+include::adopting.asciidoc[]
+
+include::filetypes.asciidoc[]
+
+include::drop-caps.asciidoc[]
+
+include::encoding.asciidoc[]
+
+include::file-naming.asciidoc[]
+
+include::sectioning.asciidoc[]
+
+include::Travis-CI.asciidoc[]
+
+include::unicoding.asciidoc[]
+
+include::versioning.asciidoc[]
+
+include::activerepos.csv[]
+
+:leveloffset: -1

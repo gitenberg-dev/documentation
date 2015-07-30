@@ -4,7 +4,7 @@ For more information about GITenberg, please see our https://gitenberg.github.io
 
 == How can you contribute?
 
-We are currently working on converting and editing our first 100 books.  
+We are currently working on converting and editing our first 100 books.
 
 * Help us link:how_to.asciidoc[format books] into link:sectioning.asciidoc[asciidoc]
 * Suggest books we should improve
@@ -99,6 +99,3 @@ first contact. All the others are being amended to point to this
 document.
 
 http://gitenberg.github.io/[Main Gitenberg page]
-https://github.com/gitenberg-dev/wiki[wiki]
-https://github.com/gitenberg-dev/wiki/wiki[wiki.wiki]
-https://github.com/sethwoodworth/GITenberg[sethwoodworth/gitenberg]

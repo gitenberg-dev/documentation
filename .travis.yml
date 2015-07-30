@@ -1,0 +1,10 @@
+language: ruby
+before_install:
+  - gem install asciidoctor
+script:
+  - asciidoctor index.asciidoc
+after_success:
+  - build/push.sh
+env:
+  global:
+    secure: MVsv9XYEjlgRT2gWwATBva0YQ1e3XEF8b3lVUynY7MgL548iA9TYNze1G2eC3v1YKtjs+VeoHx5rRhIVY+pc79sTuW41Xo2bJImgsySYxJ6FwoR0AOu7DwMTgGIol40yNELBnUF0NyXFVVqMx9aHZ4E8VxZSe3bG90iBMIZZOhk=
