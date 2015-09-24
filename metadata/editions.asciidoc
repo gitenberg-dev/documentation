@@ -1,0 +1,13 @@
+== GITenberg metadata: Editions
+
+There is a need to be able to express metadata for multiple editions in one repository. Different editions will share most metadata, but may differ in ISBN, publisher, cover, rights, etc.
+
+To support this need, pandata provides properties the "_edition", "edition_list", edition_note "edition_identifiers", and any other property beginning with "edition_"
+
+"_edition" provides the name for the edition, which should be a string that can be used for file naming, and identifying the edition. If not present, the first isbn is used as the edition name, or if no isbn, then the repo name is used. 
+
+"edition_list" should contain a list of objects (dicts), each with an "_edition" entry and any other properties that are distinctive for the edition. These properties replace any properties specified at the top level of the pandata.
+
+"edition_identifiers" provides an object (dict) whose contents replace corresponding entries in the identifiers property at the top level. Some identifiers, such as isbn and oclc numbers, typically identify an edition.
+
+"edition_note" is a descriptive note about the edition. Can be used for MARC 250 field.
