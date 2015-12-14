@@ -4,6 +4,7 @@
 # plural names for plural creators used because it seemed more natural to have author and authors attributes, for example.
 # it's a mistake to have both.
 
+_edition: Provides the name for the edition, which should be a string that can be used for file naming and for identifying the edition.
 _repo: the GITenberg repo name. 
 _version: the version string. Should come from the repo tag.
 agent_name: the name of the creator/contributor, for use in creator/contributor objects
@@ -13,64 +14,63 @@ alternative_title: An alternative title.
 attribution_url: for Creative Commons licenses, the url for attribution
 birthdate: Value should be a date. For creator/contributor objects.
 contributor: From Dublin Core, a contributor who is not the principle creator.  Value is an object (dict) with one or more contributors. In principle, could be any role from https://www.loc.gov/marc/relators/relaterm.html
-	adapter: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code adp
-	adapters: A type of creators/contributors. Value should be a list of adapters.
-	annotator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code ann
-	annotators: A type of creators/contributors. Value should be a list of annotators.
-	arranger: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code arr
-	arrangers: A type of creators/contributors. Value should be a list of arrangers.
-	artist: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code art
-	artists: A type of creators/contributors. Value should be a list of artists.
+    adapter: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code adp
+    adapters: A type of creators/contributors. Value should be a list of adapters.
+    annotator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code ann
+    annotators: A type of creators/contributors. Value should be a list of annotators.
+    arranger: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code arr
+    arrangers: A type of creators/contributors. Value should be a list of arrangers.
+    artist: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code art
+    artists: A type of creators/contributors. Value should be a list of artists.
     author_of_afterword: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code aft
     author_of_afterwords: A type of creators/contributors. Value should be a list of author_of_afterwords.
-	author_of_introduction: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code aui
-	author_of_introductions: A type of creators/contributors. Value should be a list of author_of_introductions.
-	book_producer:  A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code bkp
-	book_producers:  A type of creator/contributor. Value should be a list of book_producers
-	collaborator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code clb
-	collaborators: A type of creators/contributors. Value should be a list of contributors.
-	commentator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cmm
-	commentators: A type of creators/contributors. Value should be a list of commentators.
-	compiler: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code com
-	compilers: A type of creators/contributors. Value should be a list of compilers.
-	composer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cmp
-	composers: A type of creators/contributors. Value should be a list of composers.
-	conductor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cnd
-	conductors: A type of creators/contributors. Value should be a list of conductors.
-	contributor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code ctb
-	dubious_author: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code dub
-	dubious_authors: A type of creators/contributors. Value should be a list of dubious_authors.
-	editor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code edt
-	editors: A type of creators/contributors. Value should be a list of editors.
-	engineer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code egr
-	engineers: A type of creators/contributors. Value should be a list of engineers.
-	illustrator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code ill
-	illustrators: A type of creators/contributors. Value should be a list of illustrators.
-	librettist: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code lbt
-	librettists: A type of creators/contributors. Value should be a list of librettists.
-	other_contributor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code oth
-	other_contributors: A type of creators/contributors. Value should be a list of other_contributors.
-	performer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code prf
-	performers: A type of creators/contributors. Value should be a list of performers.
-	photographer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code pht
-	photographers: A type of creators/contributors. Value should be a list of photographers.
-	printer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code prt
-	printers: A type of creators/contributors. Value should be a list of printers.
-	publisher: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code pbl
-	publisher: A type of creators/contributors. Value should be a list of publisher_contributors.
-	researcher: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code res
-	researchers: A type of creators/contributors. Value should be a list of researchers.
-	transcriber: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code trc
-	transcribers: A type of creators/contributors. Value should be a list of transcribers.
-	translator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code trl
-	translators: A type of creators/contributors. Value should be a list of translators.
-	unknown_contributor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code unk
-	unknown_contributors: A type of creators/contributors. Value should be a list of unknown_contributors.
+    author_of_introduction: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code aui
+    author_of_introductions: A type of creators/contributors. Value should be a list of author_of_introductions.
+    book_producer:  A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code bkp
+    book_producers:  A type of creator/contributor. Value should be a list of book_producers
+    collaborator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code clb
+    collaborators: A type of creators/contributors. Value should be a list of contributors.
+    commentator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cmm
+    commentators: A type of creators/contributors. Value should be a list of commentators.
+    compiler: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code com
+    compilers: A type of creators/contributors. Value should be a list of compilers.
+    composer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cmp
+    composers: A type of creators/contributors. Value should be a list of composers.
+    conductor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code cnd
+    conductors: A type of creators/contributors. Value should be a list of conductors.
+    contributor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code ctb
+    dubious_author: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code dub
+    dubious_authors: A type of creators/contributors. Value should be a list of dubious_authors.
+    editor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code edt
+    editors: A type of creators/contributors. Value should be a list of editors.
+    engineer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code egr
+    engineers: A type of creators/contributors. Value should be a list of engineers.
+    illustrator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code ill
+    illustrators: A type of creators/contributors. Value should be a list of illustrators.
+    librettist: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code lbt
+    librettists: A type of creators/contributors. Value should be a list of librettists.
+    other_contributor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code oth
+    other_contributors: A type of creators/contributors. Value should be a list of other_contributors.
+    performer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code prf
+    performers: A type of creators/contributors. Value should be a list of performers.
+    photographer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code pht
+    photographers: A type of creators/contributors. Value should be a list of photographers.
+    printer: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code prt
+    printers: A type of creators/contributors. Value should be a list of printers.
+    publisher: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code pbl
+    publisher: A type of creators/contributors. Value should be a list of publisher_contributors.
+    researcher: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code res
+    researchers: A type of creators/contributors. Value should be a list of researchers.
+    transcriber: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code trc
+    transcribers: A type of creators/contributors. Value should be a list of transcribers.
+    translator: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code trl
+    translators: A type of creators/contributors. Value should be a list of translators.
+    unknown_contributor: A type of creator/contributor. Value should be a creator/contributor object. Defined by a MARC relation, code unk
+    unknown_contributors: A type of creators/contributors. Value should be a list of unknown_contributors.
 covers: Value should be a list of cover objects.
     attribution_url: for Creative Commons licenses, the url for attribution
     cover_type: archival | archival-back | original | generated | titlepage_image
     image_path: a file path to the image file from the directory containing the metadata file
-    isbn: for when the isbn is linked to a cover
     rights: rights pertaining to the cover
     rights_url: url defining the rights
 creator: From Dublin Core, usually the principle creators- usually the author, sometimes editors.  Value is an object (dict) with one or more creators. In principle, could be any role from https://www.loc.gov/marc/relators/relaterm.html
@@ -80,7 +80,11 @@ creator: From Dublin Core, usually the principle creators- usually the author, s
     editors: A type of creators/contributors. Value should be a list of authors. 
 deathdate: Value should be a date. For creator/contributor objects.
 description: Text description.
-edition_note: Descriptive not about the edition. For MARC 250 field.
+edition_identifiers: An object (dict) with one or more identifiers. If there are more than one of each type of identifer, the value of the specific identifier should be a list of values
+    isbn: An identifier, International Standard book number. Always 13 digits. No dashes please.
+    oclc: A number. Can link to worldcat with http://www.worldcat.org/oclc/{%oclc%}
+edition_list: A list of objects (dicts), each with an "edition" entry and any other properties that are distinctive for the edition. These properties replace any properties specified at the top level of the pandata.
+edition_note: Descriptive note about the edition. For MARC 250 field.
 funding_info: Text describing the funding for this edition. Used for MARC 536 field.
 gutenberg_agent_id: An agent identifier used in Project Gutenberg.
 gutenberg_bookshelf: Project Gutenberg assigns some books to one or more "bookshelves".
@@ -90,11 +94,9 @@ gutenberg_type: Within Project Gutenberg, the item type. Usually "Text"
 identifiers: An object (dict) with one or more identifiers. If there are more than one of each type of identifer, the value of the specific identifier should be a list of values
     goodreads: A number. Can link to goodreads with http://www.goodreads.com/book/show/{%goodreads%}
     gutenberg: A number. Can link to Project Gutenberg with http://www.gutenberg.org/ebooks/{%gutenberg%}
-    isbn: An identifier, International Standard book number. Always 13 digits. No dashes please.
     isbns_related: A list of isbns for related editions.
     lccn:  An identifier, library of congress control number. For MARC 010 field.
     librarything: A number. Can link to librarything with http://www.librarything.com/work/{%librarything%}
-    oclc: A number. Can link to worldcat with http://www.worldcat.org/oclc/{%oclc%}
     openlibrary: A case-sensetive string like '/works/OL1892624W'. Can link to openlibrary with http://openlibrary.org{%openlibrary%}
     unglueit: A number.  Can link to unglueit with https://unglue.it/work/{%unglueit%}
 language_note: Text for MARC 546 field. Usually used to note multiple languages, etc.

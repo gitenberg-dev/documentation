@@ -5,9 +5,10 @@
 - Part 3. link:pgdata3.asciidoc[Other sources of metadata]
 - Part 4. link:pgdata4.asciidoc[Metadata that's needed, but missing. Also, covers.]
 - Part 5. link:pgdata5.asciidoc[Metadata targets]
- - Dublin Core / EPUB
- - Bibframe / MARC
- - Schema.org
- - TEI
- - ONIX
- - BIBO
+** Dublin Core / EPUB
+** Bibframe / MARC
+** Schema.org
+** TEI
+** ONIX
+** BIBO
+- Part 6. link:editions.asciidoc[Editions]
