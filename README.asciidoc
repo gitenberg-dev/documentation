@@ -77,6 +77,9 @@ https://gist.github.com/eshellman/7a6d34c88e797b439938[here].
 Every book on PG gets its own repository. All are listed on the
 gitenberg organization github page, https://github.com/GITenberg/[here].
 
+There's a tsv file with a full list of repo names at
+https://github.com/gitenberg-dev/giten_site/blob/master/assets/GITenberg_repos_list_2.tsv
+
 The main gitenberg page, which is for the moment a developper's page, is
 hosted http://gitenberg.github.io/[here], and its source is
 https://github.com/GITenberg/gitenberg.github.com/blob/master/index.html[here].
