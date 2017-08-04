@@ -71,6 +71,7 @@ covers: Value should be a list of cover objects.
     attribution_url: for Creative Commons licenses, the url for attribution
     cover_type: archival | archival-back | original | generated | titlepage_image
     image_path: a file path to the image file from the directory containing the metadata file
+    image_url: a url for the cover image
     rights: rights pertaining to the cover
     rights_url: url defining the rights
 creator: From Dublin Core, usually the principle creators- usually the author, sometimes editors.  Value is an object (dict) with one or more creators. In principle, could be any role from https://www.loc.gov/marc/relators/relaterm.html
@@ -80,6 +81,9 @@ creator: From Dublin Core, usually the principle creators- usually the author, s
     editors: A type of creators/contributors. Value should be a list of authors. 
 deathdate: Value should be a date. For creator/contributor objects.
 description: Text description.
+download_url_epub: url to download an EPUB file
+download_url_mobi: url to download a MOBI (kindle) file
+download_url_pdf: url to download a PDF file
 edition_identifiers: An object (dict) with one or more identifiers. If there are more than one of each type of identifer, the value of the specific identifier should be a list of values
     isbn: An identifier, International Standard book number. Always 13 digits. No dashes please.
     oclc: A number. Can link to worldcat with http://www.worldcat.org/oclc/{%oclc%}
@@ -92,18 +96,26 @@ gutenberg_issued: Project Gutenberg's issuance date.
 gutenberg_transcribers_note: Project Gutenberg includes notes from the transcriber in text; this should be moved into metadata.
 gutenberg_type: Within Project Gutenberg, the item type. Usually "Text"
 identifiers: An object (dict) with one or more identifiers. If there are more than one of each type of identifer, the value of the specific identifier should be a list of values
-    goodreads: A number. Can link to goodreads with http://www.goodreads.com/book/show/{%goodreads%}
-    gutenberg: A number. Can link to Project Gutenberg with http://www.gutenberg.org/ebooks/{%gutenberg%}
+    goodreads: A number. Can link to goodreads with https://www.goodreads.com/book/show/{%goodreads%}
+    googlebooks: A Case sensetive base64 string. Can link to Google Books with https://books.google.com/books?id={%googlebooks%)
+    gutenberg: A number. Can link to Project Gutenberg with https://www.gutenberg.org/ebooks/{%gutenberg%}
     isbns_related: A list of isbns for related editions.
+    isbn_electronic: ISBN for an electronic edition (various formats).
+    isbn_epub: ISBN for an EPUB edition.
+    isbn_hard: ISBN for a hardcover edition.
+    isbn_mobi: ISBN for a MOBI (kindle) edition.
+    isbn_paper: ISBN for a paperpack edition.
+    isbn_pdf: ISBN for a PDF edition.
     lccn:  An identifier, library of congress control number. For MARC 010 field.
-    librarything: A number. Can link to librarything with http://www.librarything.com/work/{%librarything%}
-    openlibrary: A case-sensetive string like '/works/OL1892624W'. Can link to openlibrary with http://openlibrary.org{%openlibrary%}
+    librarything: A number. Can link to librarything with https://www.librarything.com/work/{%librarything%}
+    openlibrary: A case-sensetive string like '/works/OL1892624W'. Can link to openlibrary with https://openlibrary.org{%openlibrary%}
     unglueit: A number.  Can link to unglueit with https://unglue.it/work/{%unglueit%}
 language_note: Text for MARC 546 field. Usually used to note multiple languages, etc.
 language: An iso code for the item's language usually 2 letters, but could be 3, and might have a locale (zh-TW, for example)
 ocr_file_link: A url leading to the OCR files or OCRed image related to this book
 physical_description_note: Text for MARC 300 field.
-publication_date_original: The publication date  of the edition from which the book is derived.
+publication_date: The publication date of the edition.
+publication_date_original: The publication date of the edition from which the book is derived.
 production_note: Text for use in MARC 508 field.
 publication_note: Text for MARC 260 field.
 publisher_original: For gutenberg, the original publisher of the edition from which the book is derived.
